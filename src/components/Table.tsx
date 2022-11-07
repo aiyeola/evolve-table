@@ -66,15 +66,23 @@ export default function Table({ data }: TableProps) {
         </tr>
       </thead>
       <tbody>
-        {tableData.rows.map((row) => (
-          <tr key={row.name}>
-            {tableData.columns.map((column) => (
-              <td key={column.field} className="border-white border-2">
-                {row[column.field]}
-              </td>
-            ))}
+        {tableData.rows.length === 0 ? (
+          <tr>
+            <td colSpan={tableData.columns.length} className="text-center">
+              No data
+            </td>
           </tr>
-        ))}
+        ) : (
+          tableData.rows.map((row) => (
+            <tr key={row.name}>
+              {tableData.columns.map((column) => (
+                <td key={column.field} className="border-white border-2">
+                  {row[column.field]}
+                </td>
+              ))}
+            </tr>
+          ))
+        )}
       </tbody>
     </table>
   );

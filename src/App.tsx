@@ -59,6 +59,7 @@ export default function App() {
 
   return (
     <>
+      <div>Sample table</div>
       <Table data={data} />
     </>
   );
